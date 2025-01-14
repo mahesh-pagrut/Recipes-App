@@ -6,6 +6,8 @@ const Footer: React.FC = () => {
     { name: 'Recipes', route: '/recipes' },
     { name: 'About', route: '/about' },
     { name: 'Contact', route: '/contact' },
+    {name: 'Privacy Policy', route: '/privacyPolicy'},
+    {name: 'Terms Of Services', route: '/termsOfServices'},
   ];
 
   return (
@@ -32,16 +34,6 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/privacy-policy" passHref>
-                <span className="cursor-pointer hover:text-white">Privacy Policy</span>
-              </Link>
-            </li>
-            <li>
-              <Link href="/terms-of-service" passHref>
-                <span className="cursor-pointer hover:text-white">Terms of Service</span>
-              </Link>
-            </li>
           </ul>
         </nav>
       </div>

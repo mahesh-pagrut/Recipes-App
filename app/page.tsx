@@ -38,7 +38,7 @@ export default function HomePage() {
           inspiration. Perfect for food enthusiasts of all levels.
         </p>
         <Link
-          href="#recipes"
+          href="/recipes"
           className="bg-red-500 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-red-600 transition z-10"
         >
           Browse Recipes

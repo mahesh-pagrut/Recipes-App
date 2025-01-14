@@ -9,7 +9,7 @@ export default async function RecipesPage() {
 
   return (
     <div>
-        <div className="mb-10">
+        <div className="mb-14">
         <Header />
         </div>
       <div className="container mx-auto px-4 py-8">

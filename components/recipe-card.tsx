@@ -42,7 +42,7 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
           </div>
           <Link
             href={`/recipes/${recipe.id}`}
-            className="px-4 py-2 bg-black text-white text-sm font-medium rounded-md hover:bg-blue-700"
+            className="px-4 py-2 bg-black text-white text-sm font-medium rounded-md hover:bg-gray-700 duration-500"
           >
             View Recipe
           </Link>
