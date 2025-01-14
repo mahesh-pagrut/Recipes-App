@@ -28,7 +28,7 @@ export default function RecipeCard({ recipe }: { recipe: Recipe }) {
           {recipe.tags.map((tag, index) => (
             <span
               key={index}
-              className="px-3 py-1 text-xs bg-blue-100 text-blbg-black rounded-full"
+              className="px-3 py-1 text-xs bg-blue-100 text-black rounded-full"
             >
               {tag}
             </span>

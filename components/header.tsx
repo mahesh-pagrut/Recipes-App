@@ -4,20 +4,26 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 const routes = [
+  { name: 'Home', route: '/' },
   { name: 'Recipes', route: '/recipes' },
   { name: 'About', route: '/about' },
   { name: 'Contact', route: '/contact' },
 ];
 
+interface Recipe {
+  id: number;
+  name: string;
+}
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<Recipe[]>([]);
 
   const handleSearch = async (event: React.FormEvent) => {
     event.preventDefault();
-    
-    if (searchQuery.trim() !== "") {
+
+    if (searchQuery.trim() !== '') {
       const response = await fetch(`https://dummyjson.com/recipes/search?q=${searchQuery}`);
       const data = await response.json();
       setSearchResults(data.recipes || []);
@@ -28,7 +34,7 @@ export default function Header() {
 
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-    if (e.target.value.trim() === "") {
+    if (e.target.value.trim() === '') {
       setSearchResults([]); // Clear results when the search input is empty
     }
   };
@@ -65,7 +71,7 @@ export default function Header() {
         </button>
 
         {/* Search Bar with Button */}
-        <form onSubmit={handleSearch} className="flex items-center space-x-2 w-1/3 md:w-1/4 ml-32">
+        <form onSubmit={handleSearch} className="flex items-center space-x-2 w-1/3 md:w-1/4 ml-56">
           <input
             type="text"
             placeholder="Search Recipes"
@@ -115,18 +121,11 @@ export default function Header() {
         </form>
 
         {/* Navigation Menu */}
-        <nav
-          className={`${
-            isMenuOpen ? 'block' : 'hidden'
-          } md:flex md:relative md:w-auto`}
-        >
+        <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:flex md:relative md:w-auto`}>
           <ul className="flex flex-col md:flex-row md:space-x-4 md:items-center gap-6 p-2 md:p-0">
             {routes.map((route) => (
               <li key={route.route} className="py-2 md:py-0">
-                <Link
-                  href={route.route}
-                  className="hover:underline block text-center"
-                >
+                <Link href={route.route} className="hover:underline block text-center">
                   {route.name}
                 </Link>
               </li>
@@ -139,7 +138,7 @@ export default function Header() {
       {searchResults.length > 0 && (
         <div className="bg-white/80 backdrop-blur-sm p-2 rounded-lg shadow-lg absolute top-20 left-1/2 transform -translate-x-1/2 w-full md:w-1/3 z-10 text-center">
           <ul>
-            {searchResults.map((recipe: any) => (
+            {searchResults.map((recipe) => (
               <li key={recipe.id} className="py-2">
                 <Link href={`/recipes/${recipe.id}`} className="text-black hover:underline">
                   {recipe.name}

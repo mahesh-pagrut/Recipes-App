@@ -5,7 +5,7 @@ export default function ContactPage() {
     <main className="min-h-screen bg-gray-100 text-gray-800 p-6">
       <Header/>
       <div className="container mx-auto max-w-3xl">
-        <h1 className="text-3xl font-bold mb-4 mt-14">Contact Us</h1>
+        <h1 className="text-3xl font-bold mb-4 mt-22">Contact Us</h1>
         <p className="text-lg leading-relaxed mb-6">
           Got a question or feedback? We&apos;d love to hear from you! Reach out
           to us using the form below, or email us directly at{" "}
